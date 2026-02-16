@@ -2,6 +2,8 @@
 
 A React application where an analyst can inspect a company's (Berkshire Hathaway) profile, leadership, and office locations, make corrections inline, and export the cleaned data as JSON.
 
+🚀 **Live Demo:** [View Deployed App](https://company-data-review-portal.up.railway.app)
+
 ## Tech Stack
 
 - **Framework:** Next.js 16
