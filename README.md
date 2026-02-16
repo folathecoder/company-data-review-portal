@@ -36,6 +36,6 @@ Data entry can be tedious, so I focused on reducing friction:
 - **Smart Validation:** Errors are shown `onBlur` (when you leave a field) rather than `onChange` (while you type), preventing frustrating "shouting" UI.
 - **Export Requires Save:** JSON export only works on saved data. This prevents exporting half-edited state and keeps the exported file consistent with what the analyst last committed to.
 
-### Trade-offs & Shortcuts
+### Trade-offs
 - **Client-Side Persistence:** `localStorage` simulates a backend. In production, this would be a React Query mutation hitting a real API — the `useLocalStorage` hook is a drop-in placeholder for that pattern.
 - **Single-Company Scope:** The app loads Berkshire Hathaway (`companies[0]`) directly. Multi-company support (a list page with dynamic `[companyId]` routes) was intentionally deferred to keep the scope on the editing experience itself.
