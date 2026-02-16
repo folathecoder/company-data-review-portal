@@ -1,0 +1,200 @@
+@import 'tailwindcss';
+
+:root {
+  --font-size: 1rem;
+  --radius: 0.5rem;
+  --background: #0f1115;
+  --foreground: #e6e6e8;
+  --card: #151821;
+  --card-foreground: #e6e6e8;
+  --popover: #151821;
+  --popover-foreground: #e6e6e8;
+  --primary: #e6e6e8;
+  --primary-foreground: #0f1115;
+  --secondary: #1a1d28;
+  --secondary-foreground: #e6e6e8;
+  --muted: #1a1d28;
+  --muted-foreground: #8b8d98;
+  --accent: #1f2430;
+  --accent-foreground: #e6e6e8;
+  --destructive: #c5503c;
+  --destructive-foreground: #fee9e6;
+  --success: #22c55e;
+  --warning: #eab308;
+  --border: #1f2430;
+  --input: #1f2430;
+  --ring: #3d4150;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-size: var(--font-size);
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+@layer components {
+  .form-input {
+    @apply h-10 w-full rounded-lg border border-border/60 bg-background/50 px-3.5 py-2
+      text-base shadow-sm transition-all duration-150
+      placeholder:text-muted-foreground/50
+      focus:outline-none focus:ring-2 focus:ring-primary/10 focus:border-primary/40 focus:ring-offset-0
+      hover:border-border
+      disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-muted/20;
+  }
+
+  .form-input-error {
+    @apply border-destructive/60 focus:ring-destructive/20 focus:border-destructive;
+  }
+
+  .form-textarea {
+    @apply rounded-lg border border-border/60 bg-background/50 px-3.5 py-2.5
+      text-base shadow-sm transition-all duration-150 resize-none
+      placeholder:text-muted-foreground/50
+      focus:outline-none focus:ring-2 focus:ring-primary/10 focus:border-primary/40 focus:ring-offset-0
+      hover:border-border
+      disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-muted/20;
+  }
+
+  .form-label {
+    @apply text-sm font-medium text-foreground/80 flex items-center gap-1.5;
+  }
+
+  .form-required-dot {
+    @apply h-1 w-1 rounded-full bg-destructive;
+  }
+
+  .form-error {
+    @apply text-xs text-destructive flex items-center gap-1;
+  }
+
+  .form-helper {
+    @apply text-xs text-muted-foreground/80;
+  }
+
+  .section-title {
+    @apply text-2xl font-semibold tracking-tight text-foreground mb-2;
+  }
+
+  .section-description {
+    @apply text-sm text-muted-foreground;
+  }
+
+  .subsection-label {
+    @apply text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3;
+  }
+
+  .btn-primary {
+    @apply h-9 px-4 rounded-lg bg-primary text-primary-foreground
+      hover:bg-primary/90 transition-all duration-150
+      flex items-center gap-2 text-sm font-medium
+      shadow-lg shadow-primary/20 cursor-pointer;
+  }
+
+  .btn-secondary {
+    @apply h-9 px-4 rounded-lg bg-secondary border border-border/60
+      hover:bg-secondary/80 text-foreground transition-all duration-150
+      flex items-center gap-2 text-sm font-medium cursor-pointer;
+  }
+
+  .btn-add {
+    @apply w-full h-11 rounded-lg border-2 border-dashed border-border/60
+      hover:border-primary/40 hover:bg-primary/5 transition-all duration-150
+      flex items-center justify-center gap-2.5
+      text-sm text-muted-foreground hover:text-primary font-medium cursor-pointer;
+  }
+
+  .btn-icon-danger {
+    @apply p-1.5 rounded-md hover:bg-destructive/10
+      text-muted-foreground hover:text-destructive transition-all duration-150 cursor-pointer;
+  }
+
+  .section-card {
+    @apply rounded-xl border border-border/60 bg-card shadow-lg shadow-black/5 p-8
+      transition-all duration-200 hover:shadow-xl hover:shadow-black/10 cursor-pointer;
+  }
+
+  .collapsible-card {
+    @apply bg-card border border-border rounded-lg overflow-hidden
+      shadow-sm hover:shadow-md transition-shadow duration-200;
+  }
+
+  .collapsible-card-header {
+    @apply flex items-center justify-between px-4 py-3.5
+      hover:bg-secondary/30 transition-colors duration-150;
+  }
+
+  .collapsible-card-toggle {
+    @apply flex items-center gap-3 flex-1 text-left cursor-pointer;
+  }
+
+  .collapsible-card-body {
+    @apply px-4 pb-4 pt-2 border-t border-border bg-card/50;
+  }
+
+  .empty-state {
+    @apply flex flex-col items-center justify-center py-12 px-6 text-center
+      bg-card/30 border border-dashed border-border rounded-lg;
+  }
+
+  .status-chip {
+    @apply flex items-center gap-2.5 text-xs text-muted-foreground
+      px-3 py-2 bg-card/30 rounded-lg border-none border-border/40;
+  }
+
+  .step-indicator {
+    @apply flex items-center justify-center h-7 w-7 rounded-full border
+      transition-all duration-200 bg-muted/20 border-border text-muted-foreground;
+  }
+
+  .step-indicator-active {
+    @apply bg-primary/20 border-primary text-primary;
+  }
+
+  .step-indicator-completed {
+    @apply bg-success/20 border-success/40 text-success;
+  }
+
+  .step-connector {
+    @apply h-px w-12 transition-colors duration-200 bg-border;
+  }
+
+  .step-connector-completed {
+    @apply bg-success/40;
+  }
+}
