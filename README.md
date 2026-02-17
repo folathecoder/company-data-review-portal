@@ -2,7 +2,7 @@
 
 A React application where an analyst can inspect a company's (Berkshire Hathaway) profile, leadership, and office locations, make corrections inline, and export the cleaned data as JSON.
 
-🚀 **Live Demo:** [View Deployed App](https://company-data-review-portal.vercel.app/)  
+🚀 **Live Demo:** [View Deployed App](https://company-data-review-portal.up.railway.app)  
 🎨 **Design File:** [Figma Ideation & Mockups](https://www.figma.com/design/WyvIYFnn1HpQhxVjZUoGD1/Company-Data-Review-Portal?node-id=0-1&t=ilnLO9gFwSYHdroa-1)
 
 ## Tech Stack
